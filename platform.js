@@ -6,7 +6,7 @@
     // ===== Pod Data =====
     const podData = {
         repair: {
-            name: 'Repair Pod',
+            name: 'Repair',
             compound: 'BPC-157 + TB-500',
             category: 'Recovery',
             price: '$149',
@@ -22,7 +22,7 @@
             effects: ['Joint repair', 'Gut healing', 'Anti-inflammatory', 'Tendon recovery', 'Muscle repair', 'Wound healing']
         },
         growth: {
-            name: 'Growth Pod',
+            name: 'Growth',
             compound: 'CJC-1295 + Ipamorelin',
             category: 'Performance',
             price: '$179',
@@ -38,7 +38,7 @@
             effects: ['Lean mass', 'Deep sleep', 'Recovery', 'Anti-aging', 'Fat metabolism', 'Skin quality']
         },
         shred: {
-            name: 'Shred Pod',
+            name: 'Shred',
             compound: 'Tesamorelin',
             category: 'Body Comp',
             price: '$199',
@@ -54,7 +54,7 @@
             effects: ['Visceral fat loss', 'Body recomp', 'Metabolic health', 'Lean preservation', 'Triglyceride reduction']
         },
         vitality: {
-            name: 'Vitality Pod',
+            name: 'Vitality',
             compound: 'Epithalon (Epitalon)',
             category: 'Longevity',
             price: '$219',
@@ -70,7 +70,7 @@
             effects: ['Telomere support', 'Cell regeneration', 'Healthspan', 'Melatonin regulation', 'Anti-aging', 'Sleep quality']
         },
         sleep: {
-            name: 'Sleep Pod',
+            name: 'Sleep',
             compound: 'DSIP (Delta Sleep-Inducing Peptide)',
             category: 'Recovery',
             price: '$129',
@@ -86,7 +86,7 @@
             effects: ['Deep sleep', 'Cortisol reduction', 'Recovery', 'HGH release', 'Stress reduction', 'Sleep architecture']
         },
         endurance: {
-            name: 'Endurance Pod',
+            name: 'Endurance',
             compound: 'BPC-157 + MOTSc',
             category: 'Performance',
             price: '$189',
