@@ -49,6 +49,10 @@
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="9" y="1" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="1" y="9" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="9" y="9" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/></svg>
         Dashboard
       </button>
+      <button class="nav-item" data-page="roadmap">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 4H14M2 8H10M2 12H6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        Roadmap
+      </button>
       <button class="nav-item" data-page="market-research">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 12L6 7L9 10L13 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M11 4H13V6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         Market Research
@@ -129,6 +133,314 @@
           <div class="panel-header">Top Pods by Volume</div>
           <div class="empty-state">No data yet</div>
         </div>
+      </div>
+    </section>
+
+    <!-- ROADMAP -->
+    <section class="page" id="page-roadmap">
+      <div class="page-header">
+        <h1>Roadmap to First Subscriber</h1>
+        <span class="tag">Internal</span>
+      </div>
+
+      <div class="roadmap-legend">
+        <div class="legend-item"><span class="status-dot dot-done"></span>Done</div>
+        <div class="legend-item"><span class="status-dot dot-progress"></span>In Progress</div>
+        <div class="legend-item"><span class="status-dot dot-todo"></span>To Do</div>
+        <div class="legend-item"><span class="status-dot dot-blocked"></span>Blocked</div>
+      </div>
+
+      <div class="roadmap-tracks">
+
+        <!-- TRACK 1: Legal & Compliance -->
+        <div class="track">
+          <div class="track-header">
+            <div class="track-icon">⚖️</div>
+            <div>
+              <div class="track-title">Legal &amp; Compliance</div>
+              <div class="track-sub">Must be resolved before any sales or marketing</div>
+            </div>
+          </div>
+          <div class="track-items">
+            <div class="roadmap-item status-todo">
+              <span class="status-dot dot-todo"></span>
+              <div class="item-body">
+                <div class="item-title">Form legal entity (LLC or C-Corp)</div>
+                <div class="item-desc">Recommend Delaware C-Corp if raising. LLC if bootstrapping near-term.</div>
+              </div>
+              <span class="item-priority priority-critical">Critical</span>
+            </div>
+            <div class="roadmap-item status-todo">
+              <span class="status-dot dot-todo"></span>
+              <div class="item-body">
+                <div class="item-title">Engage healthcare regulatory attorney</div>
+                <div class="item-desc">Review peptide classification under FDA, FTC marketing rules, compounding pharmacy partnership structure.</div>
+              </div>
+              <span class="item-priority priority-critical">Critical</span>
+            </div>
+            <div class="roadmap-item status-todo">
+              <span class="status-dot dot-todo"></span>
+              <div class="item-body">
+                <div class="item-title">Draft Terms of Service &amp; Privacy Policy</div>
+                <div class="item-desc">Must be live on site before collecting any user data or payments.</div>
+              </div>
+              <span class="item-priority priority-critical">Critical</span>
+            </div>
+            <div class="roadmap-item status-todo">
+              <span class="status-dot dot-todo"></span>
+              <div class="item-body">
+                <div class="item-title">Establish compounding pharmacy partnership</div>
+                <div class="item-desc">503A or 503B pharmacy. Verify they can fulfill direct-to-consumer pod format.</div>
+              </div>
+              <span class="item-priority priority-critical">Critical</span>
+            </div>
+            <div class="roadmap-item status-todo">
+              <span class="status-dot dot-todo"></span>
+              <div class="item-body">
+                <div class="item-title">Medical director / telehealth physician partnership</div>
+                <div class="item-desc">Prescription pathway requires physician oversight in most states. Confirm model (async consult, affiliate MD, etc.).</div>
+              </div>
+              <span class="item-priority priority-critical">Critical</span>
+            </div>
+            <div class="roadmap-item status-todo">
+              <span class="status-dot dot-todo"></span>
+              <div class="item-body">
+                <div class="item-title">State-by-state shipping compliance review</div>
+                <div class="item-desc">Identify states where compounded peptide shipment is restricted or requires additional licensing.</div>
+              </div>
+              <span class="item-priority priority-high">High</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TRACK 2: Product & Device -->
+        <div class="track">
+          <div class="track-header">
+            <div class="track-icon">💉</div>
+            <div>
+              <div class="track-title">Product &amp; Device</div>
+              <div class="track-sub">Pod system, device, and fulfillment</div>
+            </div>
+          </div>
+          <div class="track-items">
+            <div class="roadmap-item status-todo">
+              <span class="status-dot dot-todo"></span>
+              <div class="item-body">
+                <div class="item-title">Finalize pod form factor &amp; manufacturer</div>
+                <div class="item-desc">Source auto-injector device manufacturer. Confirm compatibility with compounded peptide cartridge specs.</div>
+              </div>
+              <span class="item-priority priority-critical">Critical</span>
+            </div>
+            <div class="roadmap-item status-todo">
+              <span class="status-dot dot-todo"></span>
+              <div class="item-body">
+                <div class="item-title">Prototype pod + device for beta users</div>
+                <div class="item-desc">Minimum 10 functional units for beta testing. Validate ease-of-use with non-medical users.</div>
+              </div>
+              <span class="item-priority priority-critical">Critical</span>
+            </div>
+            <div class="roadmap-item status-todo">
+              <span class="status-dot dot-todo"></span>
+              <div class="item-body">
+                <div class="item-title">Cold chain packaging solution</div>
+                <div class="item-desc">Validate temperature stability during 2–5 day shipping. Confirm insulated mailer specs with pharmacy.</div>
+              </div>
+              <span class="item-priority priority-high">High</span>
+            </div>
+            <div class="roadmap-item status-todo">
+              <span class="status-dot dot-todo"></span>
+              <div class="item-body">
+                <div class="item-title">Define initial pod SKUs for launch</div>
+                <div class="item-desc">Recommend starting with 2–3 pods max (Growth, Repair, Shred). Simplify ops before expanding catalog.</div>
+              </div>
+              <span class="item-priority priority-high">High</span>
+            </div>
+            <div class="roadmap-item status-todo">
+              <span class="status-dot dot-todo"></span>
+              <div class="item-body">
+                <div class="item-title">Third-party purity testing pipeline</div>
+                <div class="item-desc">Establish lot-by-lot COA (certificate of analysis) process. Required for trust and potential future regulatory review.</div>
+              </div>
+              <span class="item-priority priority-high">High</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TRACK 3: Tech & Payments -->
+        <div class="track">
+          <div class="track-header">
+            <div class="track-icon">💳</div>
+            <div>
+              <div class="track-title">Tech &amp; Payments</div>
+              <div class="track-sub">Subscription infrastructure and checkout</div>
+            </div>
+          </div>
+          <div class="track-items">
+            <div class="roadmap-item status-progress">
+              <span class="status-dot dot-progress"></span>
+              <div class="item-body">
+                <div class="item-title">Marketing site live</div>
+                <div class="item-desc">lichtensteinryan.github.io/pulse-core — homepage and platform page published.</div>
+              </div>
+              <span class="item-priority priority-done">Done</span>
+            </div>
+            <div class="roadmap-item status-todo">
+              <span class="status-dot dot-todo"></span>
+              <div class="item-body">
+                <div class="item-title">Custom domain setup</div>
+                <div class="item-desc">Point domain to GitHub Pages or migrate to Vercel/Netlify. SSL required before payments.</div>
+              </div>
+              <span class="item-priority priority-critical">Critical</span>
+            </div>
+            <div class="roadmap-item status-todo">
+              <span class="status-dot dot-todo"></span>
+              <div class="item-body">
+                <div class="item-title">Payment processor approval</div>
+                <div class="item-desc">Stripe requires healthcare/supplement category approval. Apply early — review can take 2–4 weeks. Have legal entity and site ready.</div>
+              </div>
+              <span class="item-priority priority-critical">Critical</span>
+            </div>
+            <div class="roadmap-item status-todo">
+              <span class="status-dot dot-todo"></span>
+              <div class="item-body">
+                <div class="item-title">Subscription billing integration</div>
+                <div class="item-desc">Stripe Billing or Recurly. Handle monthly renewal, pause, cancel, and failed payment flows.</div>
+              </div>
+              <span class="item-priority priority-critical">Critical</span>
+            </div>
+            <div class="roadmap-item status-todo">
+              <span class="status-dot dot-todo"></span>
+              <div class="item-body">
+                <div class="item-title">Customer portal / account dashboard</div>
+                <div class="item-desc">Subscribers need to manage their subscription, view order history, update shipping address.</div>
+              </div>
+              <span class="item-priority priority-high">High</span>
+            </div>
+            <div class="roadmap-item status-todo">
+              <span class="status-dot dot-todo"></span>
+              <div class="item-body">
+                <div class="item-title">Order management &amp; fulfillment webhook</div>
+                <div class="item-desc">Auto-trigger pharmacy fulfillment order on new subscription or renewal. Confirm tracking data flow back to customer.</div>
+              </div>
+              <span class="item-priority priority-high">High</span>
+            </div>
+            <div class="roadmap-item status-todo">
+              <span class="status-dot dot-todo"></span>
+              <div class="item-body">
+                <div class="item-title">Intake / health questionnaire flow</div>
+                <div class="item-desc">Required for physician sign-off. Async consult form covering contraindications, current medications, health history.</div>
+              </div>
+              <span class="item-priority priority-high">High</span>
+            </div>
+            <div class="roadmap-item status-todo">
+              <span class="status-dot dot-todo"></span>
+              <div class="item-body">
+                <div class="item-title">Transactional email setup</div>
+                <div class="item-desc">Order confirmation, shipping notification, renewal reminder, failed payment. Use Postmark or Resend.</div>
+              </div>
+              <span class="item-priority priority-high">High</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TRACK 4: Marketing & Launch -->
+        <div class="track">
+          <div class="track-header">
+            <div class="track-icon">📣</div>
+            <div>
+              <div class="track-title">Marketing &amp; Launch</div>
+              <div class="track-sub">Demand generation and waitlist</div>
+            </div>
+          </div>
+          <div class="track-items">
+            <div class="roadmap-item status-todo">
+              <span class="status-dot dot-todo"></span>
+              <div class="item-body">
+                <div class="item-title">Waitlist / email capture live on site</div>
+                <div class="item-desc">Collect early interest before launch. Use for beta recruitment and launch day notification.</div>
+              </div>
+              <span class="item-priority priority-high">High</span>
+            </div>
+            <div class="roadmap-item status-todo">
+              <span class="status-dot dot-todo"></span>
+              <div class="item-body">
+                <div class="item-title">Beta user recruitment (10–25 people)</div>
+                <div class="item-desc">Friends, network, biohacking communities. Goal: validate UX, generate testimonials, catch fulfillment issues.</div>
+              </div>
+              <span class="item-priority priority-high">High</span>
+            </div>
+            <div class="roadmap-item status-todo">
+              <span class="status-dot dot-todo"></span>
+              <div class="item-body">
+                <div class="item-title">Before/after content &amp; testimonials</div>
+                <div class="item-desc">Document beta users' experiences. Essential social proof for paid acquisition and influencer pitches.</div>
+              </div>
+              <span class="item-priority priority-high">High</span>
+            </div>
+            <div class="roadmap-item status-todo">
+              <span class="status-dot dot-todo"></span>
+              <div class="item-body">
+                <div class="item-title">Influencer outreach (5–10 seeding partnerships)</div>
+                <div class="item-desc">Target longevity/biohacking creators 50K–500K. Gifting + affiliate code. Prioritize authentic fit over reach.</div>
+              </div>
+              <span class="item-priority priority-medium">Medium</span>
+            </div>
+            <div class="roadmap-item status-todo">
+              <span class="status-dot dot-todo"></span>
+              <div class="item-body">
+                <div class="item-title">Launch announcement content ready</div>
+                <div class="item-desc">Email to waitlist, social posts, Reddit community posts (r/Peptides, r/longevity). Prepare 1 week before go-live.</div>
+              </div>
+              <span class="item-priority priority-medium">Medium</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TRACK 5: Operations -->
+        <div class="track">
+          <div class="track-header">
+            <div class="track-icon">📦</div>
+            <div>
+              <div class="track-title">Operations</div>
+              <div class="track-sub">Support, fulfillment, and internal processes</div>
+            </div>
+          </div>
+          <div class="track-items">
+            <div class="roadmap-item status-todo">
+              <span class="status-dot dot-todo"></span>
+              <div class="item-body">
+                <div class="item-title">Customer support channel live</div>
+                <div class="item-desc">Email or chat support before first subscriber. Intercom, Crisp, or just a monitored inbox. Response SLA defined.</div>
+              </div>
+              <span class="item-priority priority-high">High</span>
+            </div>
+            <div class="roadmap-item status-todo">
+              <span class="status-dot dot-todo"></span>
+              <div class="item-body">
+                <div class="item-title">Refund &amp; cancellation policy documented</div>
+                <div class="item-desc">Clear policy on refunds, returns, and cancellation. Required for payment processor and consumer trust.</div>
+              </div>
+              <span class="item-priority priority-high">High</span>
+            </div>
+            <div class="roadmap-item status-todo">
+              <span class="status-dot dot-todo"></span>
+              <div class="item-body">
+                <div class="item-title">Adverse event reporting process</div>
+                <div class="item-desc">Define protocol if a customer reports a negative reaction. Loop in medical director. Document everything.</div>
+              </div>
+              <span class="item-priority priority-critical">Critical</span>
+            </div>
+            <div class="roadmap-item status-todo">
+              <span class="status-dot dot-todo"></span>
+              <div class="item-body">
+                <div class="item-title">Business insurance</div>
+                <div class="item-desc">Product liability and general liability insurance. Essential before shipping to paying customers.</div>
+              </div>
+              <span class="item-priority priority-critical">Critical</span>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
