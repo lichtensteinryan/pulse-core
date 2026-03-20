@@ -110,7 +110,7 @@ section{position:relative;padding:100px 40px;}
 .filter-tab.active{background:var(--green);color:#000;border-color:var(--green);box-shadow:0 0 16px var(--green-glow);}
 .filter-tab:hover:not(.active){border-color:rgba(255,255,255,0.3);color:#fff;}
 .pods-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
-.pod-card{background:var(--card);border-radius:20px;padding:28px;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,0.05);transition:border-color .3s,transform .3s;}
+.pod-card{background:var(--card);border-radius:20px;padding:28px;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,0.05);transition:border-color .3s,transform .3s;display:flex;flex-direction:column;}
 .pod-card:hover{border-color:rgba(0,255,106,0.2);transform:translateY(-2px);}
 .pod-card.hidden{display:none;}
 .pod-card-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:20px;}
@@ -130,7 +130,7 @@ section{position:relative;padding:100px 40px;}
 .pod-spec-value{font-size:13px;font-weight:500;}
 .pod-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px;}
 .pod-tag{font-size:11px;font-weight:400;color:var(--grey);background:var(--card2);border-radius:999px;padding:4px 12px;border:1px solid rgba(255,255,255,0.06);}
-.pod-footer{display:flex;align-items:center;justify-content:space-between;padding-top:16px;border-top:1px solid rgba(255,255,255,0.07);}
+.pod-footer{display:flex;align-items:center;justify-content:space-between;padding-top:16px;border-top:1px solid rgba(255,255,255,0.07);margin-top:auto;}
 .pod-price{font-size:28px;font-weight:600;}.pod-price span{font-size:14px;font-weight:300;color:var(--grey);}
 .pod-btn{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;background:var(--green);color:#000;border:none;padding:12px 24px;border-radius:999px;cursor:none;font-weight:500;transition:all .25s;}
 .pod-btn:hover{background:#fff;}
@@ -324,8 +324,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:32px 40px
 <section id="pods">
   <div class="pods-inner">
     <div class="pods-header reveal">
-      <div class="eyebrow">Peptide Pods</div>
-      <h2 class="section-h">Built for your goals.<br/>Pre-measured for safety.</h2>
+      <div class="eyebrow">Pulse Kits</div>
+      <h2 class="section-h">Built for your goals.<br/>Pre-measured for safety.<br/>Delivered to your door.</h2>
       <p class="section-sub" style="max-width:560px;margin:0 auto;">Each kit is delivered with 30-day supply peptide pods pre-loaded with clinically-informed dosing. Select a protocol, and Pulse delivers it directly to you monthly.</p>
     </div>
     <div class="filter-tabs">
@@ -340,7 +340,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:32px 40px
       <div class="pod-card" data-category="recovery">
         <div class="pod-card-top">
           <div class="pod-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#00ff6a" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#00ff6a" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
           </div>
           <span class="pod-category-badge badge-recovery">Recovery</span>
         </div>
@@ -413,7 +413,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:32px 40px
       <div class="pod-card" data-category="performance">
         <div class="pod-card-top">
           <div class="pod-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#00c8ff" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#00c8ff" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
           </div>
           <span class="pod-category-badge badge-performance">Performance</span>
         </div>
