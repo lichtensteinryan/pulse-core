@@ -92,7 +92,7 @@ section{position:relative;padding:100px 40px;}
 #peptides{background:var(--surface);}
 .peptides-inner{max-width:1100px;margin:0 auto;}
 .peptides-header{text-align:center;margin-bottom:72px;}
-.peptide-explainer{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;margin-bottom:80px;}
+.peptide-explainer{display:grid;grid-template-columns:1fr 1fr;gap:2px;align-items:start;}
 .peptide-chain{margin-top:28px;display:flex;flex-direction:column;gap:2px;}
 .chain-item{padding:18px 22px;background:var(--card);border-left:2px solid transparent;transition:border-color .3s;}
 .chain-item:hover{border-left-color:var(--green);}
@@ -119,7 +119,7 @@ section{position:relative;padding:100px 40px;}
 .benefit-compounds{margin-top:16px;display:flex;flex-wrap:wrap;gap:4px;}
 .benefit-compound{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.12em;color:var(--green);background:var(--green-dim);border:1px solid rgba(0,255,106,0.2);padding:3px 10px;border-radius:999px;}
 .audience-split{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:2px;}
-.audience-card{background:var(--card2);padding:48px 40px;}
+.audience-card{background:var(--card2);padding:32px 32px;}
 .audience-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:var(--grey);margin-bottom:20px;}
 .audience-h{font-size:20px;font-weight:600;margin-bottom:12px;line-height:1.3;}
 .audience-body{font-size:13px;font-weight:300;color:var(--grey);line-height:1.75;margin-bottom:24px;}
@@ -441,69 +441,28 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:32px 40px
           </div>
         </div>
       </div>
-      <div class="pep-molecule reveal d1">
-        <div class="pep-molecule-header">
-          <span class="eyebrow" style="margin:0;">Signal pathway</span>
-        </div>
-        <div class="pep-pathway">
-          <div class="pep-step">
-            <div class="pep-step-dot"></div>
-            <div>
-              <div class="pep-step-label">Peptide administered</div>
-              <div class="pep-step-sub">Subcutaneous delivery &mdash; pre-filled, calibrated dose</div>
-            </div>
-          </div>
-          <div class="pep-connector"></div>
-          <div class="pep-step">
-            <div class="pep-step-dot"></div>
-            <div>
-              <div class="pep-step-label">Receptor binding</div>
-              <div class="pep-step-sub">Peptide locks to its target receptor site</div>
-            </div>
-          </div>
-          <div class="pep-connector"></div>
-          <div class="pep-step">
-            <div class="pep-step-dot"></div>
-            <div>
-              <div class="pep-step-label">Downstream signal cascade</div>
-              <div class="pep-step-sub">Biological response initiated along the target pathway</div>
-            </div>
-          </div>
-          <div class="pep-connector"></div>
-          <div class="pep-step">
-            <div class="pep-step-dot pep-dot-green"></div>
-            <div>
-              <div class="pep-step-label" style="color:var(--green);">Measurable outcome</div>
-              <div class="pep-step-sub">Recovery, body composition, cognition, sleep quality</div>
-            </div>
+      <div style="display:flex;flex-direction:column;gap:2px;">
+        <div class="audience-card reveal">
+          <div class="audience-tag">If you&rsquo;re new to peptides</div>
+          <div class="audience-h">Start with what matters: the outcome.</div>
+          <div class="audience-body">You don&rsquo;t need to understand every mechanism to benefit. What matters is matching the right protocol to your goal &mdash; then actually following it. The science handles itself when the system works.</div>
+          <div class="audience-qs">
+            <div class="audience-q">Are they safe? Yes &mdash; when sourced correctly and dosed appropriately.</div>
+            <div class="audience-q">Will I feel it right away? Some compounds act quickly. Most build over 4&ndash;12 weeks.</div>
+            <div class="audience-q">Do I need a doctor? Pulse protocols are clinically informed. We simplify the process.</div>
+            <div class="audience-q">Is this like steroids? No. Peptides work with your body&rsquo;s own pathways, not around them.</div>
           </div>
         </div>
-        <div class="pep-molecule-note">Typical protocol window: <span style="color:var(--green);">30&ndash;90 days</span> for meaningful results</div>
-      </div>
-    </div>
-
-    <!-- Two Audiences -->
-    <div class="audience-split">
-      <div class="audience-card reveal">
-        <div class="audience-tag">If you&rsquo;re new to peptides</div>
-        <div class="audience-h">Start with what matters: the outcome.</div>
-        <div class="audience-body">You don&rsquo;t need to understand every mechanism to benefit. What matters is matching the right protocol to your goal &mdash; then actually following it. The science handles itself when the system works.</div>
-        <div class="audience-qs">
-          <div class="audience-q">Are they safe? Yes &mdash; when sourced correctly and dosed appropriately.</div>
-          <div class="audience-q">Will I feel it right away? Some compounds act quickly. Most build over 4&ndash;12 weeks.</div>
-          <div class="audience-q">Do I need a doctor? Pulse protocols are clinically informed. We simplify the process.</div>
-          <div class="audience-q">Is this like steroids? No. Peptides work with your body&rsquo;s own pathways, not around them.</div>
-        </div>
-      </div>
-      <div class="audience-card reveal d1" style="border-left:2px solid rgba(0,255,106,0.18);">
-        <div class="audience-tag" style="color:var(--green);">If you&rsquo;ve done your research</div>
-        <div class="audience-h">The bottleneck was never the compound.</div>
-        <div class="audience-body">You know the half-lives. You&rsquo;ve read the PubMed abstracts. You&rsquo;ve probably reconstituted BAC water more times than you&rsquo;d like. The issue isn&rsquo;t knowledge &mdash; it&rsquo;s that the entire workflow is built to fail. Inconsistent dosing. No protocol structure. No accountability layer. Pulse is what happens when the system is actually designed to work.</div>
-        <div class="audience-qs">
-          <div class="audience-q">Pre-filled pods with exact dosing. No measurement error.</div>
-          <div class="audience-q">Protocol stacking built in. BPC + TB-500, CJC + Ipamorelin &mdash; done correctly.</div>
-          <div class="audience-q">30/60/90-day structure. Not a monthly &ldquo;refill and hope&rdquo; situation.</div>
-          <div class="audience-q">Quality you can verify. Batch-tested, pharmaceutical-grade sourcing.</div>
+        <div class="audience-card reveal d1" style="border-left:2px solid rgba(0,255,106,0.18);">
+          <div class="audience-tag" style="color:var(--green);">If you&rsquo;ve done your research</div>
+          <div class="audience-h">The bottleneck was never the compound.</div>
+          <div class="audience-body">You know the half-lives. You&rsquo;ve read the PubMed abstracts. You&rsquo;ve probably reconstituted BAC water more times than you&rsquo;d like. The issue isn&rsquo;t knowledge &mdash; it&rsquo;s that the entire workflow is built to fail. Inconsistent dosing. No protocol structure. No accountability layer. Pulse is what happens when the system is actually designed to work.</div>
+          <div class="audience-qs">
+            <div class="audience-q">Pre-filled pods with exact dosing. No measurement error.</div>
+            <div class="audience-q">Protocol stacking built in. BPC + TB-500, CJC + Ipamorelin &mdash; done correctly.</div>
+            <div class="audience-q">30/60/90-day structure. Not a monthly &ldquo;refill and hope&rdquo; situation.</div>
+            <div class="audience-q">Quality you can verify. Batch-tested, pharmaceutical-grade sourcing.</div>
+          </div>
         </div>
       </div>
     </div>
