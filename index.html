@@ -277,6 +277,12 @@ section{position:relative;padding:100px 40px;}
 .testimonial-divider{width:48px;height:1px;background:var(--green);margin:0 auto 28px;opacity:0.5;}
 .testimonial-name{font-size:15px;font-weight:600;margin-bottom:6px;}
 .testimonial-title{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.2em;color:var(--grey);text-transform:uppercase;line-height:1.8;}
+.testimonial-layout{display:grid;grid-template-columns:260px 1fr;gap:64px;align-items:center;text-align:left;}
+.testimonial-photo-wrap{flex-shrink:0;}
+.testimonial-photo{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;filter:grayscale(20%);}
+.testimonial-divider{width:48px;height:1px;background:var(--green);margin:0 0 28px;opacity:0.5;}
+.testimonial-mark{font-size:64px;line-height:0.7;color:var(--green);opacity:0.4;font-family:Georgia,serif;margin-bottom:24px;display:block;}
+@media(max-width:900px){.testimonial-layout{grid-template-columns:1fr;}.testimonial-photo-wrap{max-width:180px;}}
 /* FAQ */
 #faq{background:var(--bg);}
 .faq-inner{max-width:760px;margin:0 auto;}
@@ -999,11 +1005,18 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:32px 40px
 <!-- TESTIMONIAL -->
 <section id="testimonial">
   <div class="testimonial-inner reveal">
-    <span class="testimonial-mark">&ldquo;</span>
-    <p class="testimonial-quote">As an orthopedic surgeon, I see firsthand what poor recovery does to long-term outcomes. The clinical literature on peptides like BPC-157 and TB-500 is compelling — but the barrier has always been the workflow. Manual reconstitution, inconsistent dosing, no protocol structure. Pulse eliminates all of it. The pre-filled pod system is the first delivery format I&rsquo;d feel confident recommending to my patients.</p>
-    <div class="testimonial-divider"></div>
-    <div class="testimonial-name">Sameh Elguizaoui, M.D.</div>
-    <div class="testimonial-title">Board-Certified Orthopedic Surgeon &amp; Sports Medicine Specialist<br/>Lenox Hill Hospital &nbsp;·&nbsp; Mount Sinai &nbsp;·&nbsp; New York</div>
+    <div class="testimonial-layout">
+      <div class="testimonial-photo-wrap">
+        <img class="testimonial-photo" src="dr-elguizaoui.jpg" alt="Dr. Sameh Elguizaoui, MD" onerror="this.style.display=&apos;none&apos;"/>
+      </div>
+      <div class="testimonial-content">
+        <span class="testimonial-mark">&ldquo;</span>
+        <p class="testimonial-quote">As an orthopedic surgeon, I see firsthand what poor recovery does to long-term outcomes. The clinical literature on peptides like BPC-157 and TB-500 is compelling — but the barrier has always been the workflow. Manual reconstitution, inconsistent dosing, no protocol structure. Pulse eliminates all of it. The pre-filled pod system is the first delivery format I&rsquo;d feel confident recommending to my patients.</p>
+        <div class="testimonial-divider"></div>
+        <div class="testimonial-name">Sameh Elguizaoui, M.D.</div>
+        <div class="testimonial-title">Board-Certified Orthopedic Surgeon &amp; Sports Medicine Specialist<br/>Lenox Hill Hospital &nbsp;·&nbsp; Mount Sinai &nbsp;·&nbsp; New York</div>
+      </div>
+    </div>
   </div>
 </section>
 
