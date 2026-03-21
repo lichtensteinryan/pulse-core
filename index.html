@@ -1022,13 +1022,15 @@ gsap.from('.footer-links', {
     options.forEach(function(opt) {
       opt.classList.toggle('active', opt.getAttribute('data-theme') === theme);
     });
+    window.dispatchEvent(new CustomEvent('themechange'));
   }
 
-  /* Sync active state on load */
+  /* Sync active state on load and fire themechange so bg.js picks up saved theme */
   var saved = localStorage.getItem('pulse-theme') || 'base';
   options.forEach(function(opt) {
     opt.classList.toggle('active', opt.getAttribute('data-theme') === saved);
   });
+  window.dispatchEvent(new CustomEvent('themechange'));
 
   toggleBtn.addEventListener('click', function(e) {
     e.stopPropagation();

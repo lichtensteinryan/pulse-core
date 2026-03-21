@@ -111,8 +111,26 @@
     const lAlphaLoc = gl.getAttribLocation(lineProg, 'aAlpha');
     const lColorLoc = gl.getUniformLocation(lineProg, 'uColor');
 
-    // Color: #00FF87 = (0, 1, 0.529)
-    const color = [0.0, 1.0, 0.529];
+    // Color: read from CSS --green variable, updates on theme change
+    let color = [0.0, 1.0, 0.529];
+
+    function hexToRgb01(hex) {
+        hex = hex.trim().replace('#', '');
+        if (hex.length === 3) hex = hex[0]+hex[0]+hex[1]+hex[1]+hex[2]+hex[2];
+        return [
+            parseInt(hex.slice(0,2), 16) / 255,
+            parseInt(hex.slice(2,4), 16) / 255,
+            parseInt(hex.slice(4,6), 16) / 255
+        ];
+    }
+
+    function syncColor() {
+        var val = getComputedStyle(document.documentElement).getPropertyValue('--green').trim();
+        if (val && val[0] === '#') color = hexToRgb01(val);
+    }
+
+    syncColor();
+    window.addEventListener('themechange', syncColor);
 
     // Mouse interaction
     let mouseX = 999, mouseY = 999;
