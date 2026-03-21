@@ -112,7 +112,7 @@ section{position:relative;padding:100px 40px;}
 .filter-tab.active{background:var(--green);color:#000;border-color:var(--green);box-shadow:0 0 16px var(--green-glow);}
 .filter-tab:hover:not(.active){border-color:rgba(255,255,255,0.3);color:#fff;}
 .pods-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
-.pod-card{background:var(--card);border-radius:20px;padding:28px;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,0.05);transition:border-color .3s,transform .3s;display:flex;flex-direction:column;}
+.pod-card{background:var(--card);border-radius:20px;padding:28px;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,0.05);transition:border-color .3s;display:flex;flex-direction:column;}
 .pod-card:hover{border-color:rgba(0,255,106,0.2);transform:translateY(-2px);}
 .pod-card.hidden{display:none;}
 .pod-card-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:20px;}
@@ -741,12 +741,13 @@ gsap.from('.filter-tabs', {
   y: 28, opacity: 0, duration: 0.75, ease: 'power3.out',
   scrollTrigger: { trigger: '.filter-tabs', start: 'top 88%' }
 });
-// Cards launch upward in a wave — slight rotateX for premium feel
-gsap.from('.pod-card', {
-  y: 96, opacity: 0, scale: 0.94, rotateX: 8,
-  duration: 1.1, stagger: { each: 0.1, from: 'start' }, ease: 'expo.out',
-  transformOrigin: 'bottom center',
-  scrollTrigger: { trigger: '.pods-grid', start: 'top 84%' }
+// Each pod card triggers individually as it enters viewport — no stagger delay buildup
+gsap.utils.toArray('.pod-card').forEach((card) => {
+  gsap.from(card, {
+    y: 56, opacity: 0, duration: 1.0, ease: 'expo.out',
+    clearProps: 'transform,opacity',
+    scrollTrigger: { trigger: card, start: 'top 92%' }
+  });
 });
 
 // ── STACKS — alternating horizontal momentum ──────────
