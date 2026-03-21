@@ -215,8 +215,55 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:32px 40px
   .stat-item{min-width:50%;border-right:none;border-bottom:1px solid var(--border);}
   footer{flex-direction:column;gap:14px;text-align:center;}
   .hero-logo{letter-spacing:0.15em;}
+  .theme-switcher{display:none;}
 }
+
+/* ===== THEME SWITCHER UI ===== */
+.theme-switcher{position:relative;display:flex;align-items:center;}
+.theme-toggle-btn{display:flex;align-items:center;gap:7px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--grey);background:transparent;border:1px solid var(--border);border-radius:999px;padding:7px 16px;cursor:none;transition:color .25s,border-color .25s;}
+.theme-toggle-btn:hover{color:var(--green);border-color:var(--green);}
+.theme-toggle-btn svg{stroke:currentColor;flex-shrink:0;}
+.theme-dropdown{position:absolute;top:calc(100% + 12px);right:0;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:6px;min-width:156px;display:none;flex-direction:column;gap:2px;z-index:200;box-shadow:0 16px 40px rgba(0,0,0,0.6);}
+.theme-dropdown.open{display:flex;}
+.theme-option{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:8px;cursor:none;transition:background .15s;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--grey);}
+.theme-option:hover{background:var(--card2);color:var(--white);}
+.theme-option.active{background:var(--card2);color:var(--green);}
+.theme-swatch{width:10px;height:10px;border-radius:50%;flex-shrink:0;box-shadow:0 0 6px currentColor;}
+
+/* ===== THEME: NEUTRAL (warm, gender-neutral, teal) ===== */
+[data-theme="neutral"]{--bg:#12110f;--surface:#1c1a17;--card:#232018;--card2:#2a271f;--border:rgba(255,240,210,0.08);--green:#4ecdc4;--green-dim:rgba(78,205,196,0.12);--green-glow:rgba(78,205,196,0.22);--white:#f5efe6;--grey:rgba(245,239,230,0.5);--grey2:rgba(245,239,230,0.28);}
+[data-theme="neutral"] nav{background:linear-gradient(to bottom,rgba(18,17,15,0.95) 0%,transparent 100%);}
+[data-theme="neutral"] .hero-bg::after{background:linear-gradient(to bottom,rgba(18,17,15,0.82) 0%,rgba(18,17,15,0.2) 35%,rgba(18,17,15,0.15) 60%,rgba(18,17,15,0.85) 85%,rgba(18,17,15,0.98) 100%);}
+[data-theme="neutral"] .nav-cta{color:#000;}
+[data-theme="neutral"] .btn-green{color:#000;}
+
+/* ===== THEME: CLINICAL (dark navy, sky-blue, tech/medical) ===== */
+[data-theme="clinical"]{--bg:#040c18;--surface:#071425;--card:#0a1d34;--card2:#0e2540;--border:rgba(100,180,255,0.12);--green:#38bdf8;--green-dim:rgba(56,189,248,0.1);--green-glow:rgba(56,189,248,0.22);--white:#e0f2fe;--grey:rgba(224,242,254,0.5);--grey2:rgba(224,242,254,0.28);}
+[data-theme="clinical"] nav{background:linear-gradient(to bottom,rgba(4,12,24,0.97) 0%,transparent 100%);}
+[data-theme="clinical"] .hero-bg::after{background:linear-gradient(to bottom,rgba(4,12,24,0.82) 0%,rgba(4,12,24,0.2) 35%,rgba(4,12,24,0.15) 60%,rgba(4,12,24,0.85) 85%,rgba(4,12,24,0.98) 100%);}
+[data-theme="clinical"] .nav-cta{color:#000;}
+[data-theme="clinical"] .btn-green{color:#000;}
+[data-theme="clinical"] .step-num{color:var(--green);}
+
+/* ===== THEME: AURORA (deep purple, lavender, inclusive) ===== */
+[data-theme="aurora"]{--bg:#0d0a1a;--surface:#160f2a;--card:#1e1535;--card2:#261c40;--border:rgba(200,170,255,0.1);--green:#c084fc;--green-dim:rgba(192,132,252,0.12);--green-glow:rgba(192,132,252,0.28);--white:#faf5ff;--grey:rgba(250,245,255,0.5);--grey2:rgba(250,245,255,0.28);}
+[data-theme="aurora"] nav{background:linear-gradient(to bottom,rgba(13,10,26,0.95) 0%,transparent 100%);}
+[data-theme="aurora"] .hero-bg::after{background:linear-gradient(to bottom,rgba(13,10,26,0.82) 0%,rgba(13,10,26,0.2) 35%,rgba(13,10,26,0.15) 60%,rgba(13,10,26,0.85) 85%,rgba(13,10,26,0.98) 100%);}
+[data-theme="aurora"] .nav-cta{color:#fff;background:var(--green);}
+[data-theme="aurora"] .btn-green{color:#fff;}
+
+/* ===== THEME: CARBON (pure black, neon cyan, futuristic) ===== */
+[data-theme="carbon"]{--bg:#000000;--surface:#080808;--card:#0d0d0d;--card2:#121212;--border:rgba(0,255,255,0.07);--green:#00ffff;--green-dim:rgba(0,255,255,0.08);--green-glow:rgba(0,255,255,0.2);--white:#ffffff;--grey:rgba(255,255,255,0.5);--grey2:rgba(255,255,255,0.28);}
+[data-theme="carbon"] nav{background:linear-gradient(to bottom,rgba(0,0,0,0.98) 0%,transparent 100%);}
+[data-theme="carbon"] .hero-bg::after{background:linear-gradient(to bottom,rgba(0,0,0,0.85) 0%,rgba(0,0,0,0.2) 35%,rgba(0,0,0,0.15) 60%,rgba(0,0,0,0.85) 85%,rgba(0,0,0,0.99) 100%);}
+[data-theme="carbon"] .nav-cta{color:#000;}
+[data-theme="carbon"] .btn-green{color:#000;}
+[data-theme="carbon"] .nav-icon{border-color:var(--green);}
 </style>
+<script>
+/* Apply saved theme immediately to prevent flash */
+(function(){var t=localStorage.getItem('pulse-theme');if(t&&t!=='base')document.documentElement.setAttribute('data-theme',t);})();
+</script>
 </head>
 <body>
 <canvas id="grain"></canvas>
@@ -235,6 +282,34 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:32px 40px
     <li><a href="#stacks">Stacks</a></li>
     <li><a href="#how">How It Works</a></li>
   </ul>
+  <div class="theme-switcher" id="theme-switcher">
+    <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Switch theme">
+      <svg viewBox="0 0 24 24" fill="none" width="13" height="13" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      <span>Style</span>
+    </button>
+    <div class="theme-dropdown" id="theme-dropdown">
+      <div class="theme-option active" data-theme="base">
+        <div class="theme-swatch" style="background:#00ff6a;box-shadow:0 0 5px #00ff6a;"></div>
+        <span>Base</span>
+      </div>
+      <div class="theme-option" data-theme="neutral">
+        <div class="theme-swatch" style="background:#4ecdc4;box-shadow:0 0 5px #4ecdc4;"></div>
+        <span>Neutral</span>
+      </div>
+      <div class="theme-option" data-theme="clinical">
+        <div class="theme-swatch" style="background:#38bdf8;box-shadow:0 0 5px #38bdf8;"></div>
+        <span>Clinical</span>
+      </div>
+      <div class="theme-option" data-theme="aurora">
+        <div class="theme-swatch" style="background:#c084fc;box-shadow:0 0 5px #c084fc;"></div>
+        <span>Aurora</span>
+      </div>
+      <div class="theme-option" data-theme="carbon">
+        <div class="theme-swatch" style="background:#00ffff;box-shadow:0 0 5px #00ffff;"></div>
+        <span>Carbon</span>
+      </div>
+    </div>
+  </div>
   <a href="#waitlist" class="nav-cta">Get Early Access</a>
 </nav>
 <!-- HERO -->
@@ -929,6 +1004,47 @@ gsap.from('.footer-links', {
     });
   }
   loop();
+})();
+
+/* ===== THEME SWITCHER ===== */
+(function() {
+  var toggleBtn = document.getElementById('theme-toggle-btn');
+  var dropdown  = document.getElementById('theme-dropdown');
+  var options   = document.querySelectorAll('.theme-option');
+
+  function applyTheme(theme) {
+    if (theme === 'base') {
+      document.documentElement.removeAttribute('data-theme');
+    } else {
+      document.documentElement.setAttribute('data-theme', theme);
+    }
+    localStorage.setItem('pulse-theme', theme);
+    options.forEach(function(opt) {
+      opt.classList.toggle('active', opt.getAttribute('data-theme') === theme);
+    });
+  }
+
+  /* Sync active state on load */
+  var saved = localStorage.getItem('pulse-theme') || 'base';
+  options.forEach(function(opt) {
+    opt.classList.toggle('active', opt.getAttribute('data-theme') === saved);
+  });
+
+  toggleBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    dropdown.classList.toggle('open');
+  });
+
+  options.forEach(function(opt) {
+    opt.addEventListener('click', function() {
+      applyTheme(this.getAttribute('data-theme'));
+      dropdown.classList.remove('open');
+    });
+  });
+
+  document.addEventListener('click', function() {
+    dropdown.classList.remove('open');
+  });
 })();
 
 </script>
