@@ -26,7 +26,7 @@ html{scroll-behavior:smooth;}
 body{background:var(--bg);color:var(--white);font-family:'Inter',sans-serif;font-weight:400;overflow-x:hidden;cursor:none;}
 /* CURSOR */
 .cur{position:fixed;width:8px;height:8px;background:var(--green);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);box-shadow:0 0 12px var(--green);transition:width .25s,height .25s;}
-.cur-ring{position:fixed;width:32px;height:32px;border:1px solid rgba(0,255,106,0.3);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:transform .1s ease,width .25s,height .25s;}
+.cur-ring{display:none;}
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 40px;background:linear-gradient(to bottom,rgba(5,5,5,0.95) 0%,transparent 100%);}
 .nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;}
@@ -110,7 +110,7 @@ section{position:relative;padding:100px 40px;}
 .filter-tab.active{background:var(--green);color:#000;border-color:var(--green);box-shadow:0 0 16px var(--green-glow);}
 .filter-tab:hover:not(.active){border-color:rgba(255,255,255,0.3);color:#fff;}
 .pods-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
-.pod-card{background:var(--card);border-radius:20px;padding:28px;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,0.05);transition:border-color .3s,transform .3s;}
+.pod-card{background:var(--card);border-radius:20px;padding:28px;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,0.05);transition:border-color .3s,transform .3s;display:flex;flex-direction:column;}
 .pod-card:hover{border-color:rgba(0,255,106,0.2);transform:translateY(-2px);}
 .pod-card.hidden{display:none;}
 .pod-card-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:20px;}
@@ -130,7 +130,7 @@ section{position:relative;padding:100px 40px;}
 .pod-spec-value{font-size:13px;font-weight:500;}
 .pod-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px;}
 .pod-tag{font-size:11px;font-weight:400;color:var(--grey);background:var(--card2);border-radius:999px;padding:4px 12px;border:1px solid rgba(255,255,255,0.06);}
-.pod-footer{display:flex;align-items:center;justify-content:space-between;padding-top:16px;border-top:1px solid rgba(255,255,255,0.07);}
+.pod-footer{display:flex;align-items:center;justify-content:space-between;padding-top:16px;border-top:1px solid rgba(255,255,255,0.07);margin-top:auto;}
 .pod-price{font-size:28px;font-weight:600;}.pod-price span{font-size:14px;font-weight:300;color:var(--grey);}
 .pod-btn{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;background:var(--green);color:#000;border:none;padding:12px 24px;border-radius:999px;cursor:none;font-weight:500;transition:all .25s;}
 .pod-btn:hover{background:#fff;}
@@ -252,8 +252,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:32px 40px
 </section>
 <!-- STATS BAR -->
 <div class="stats-bar">
-  <div class="stat-item"><div class="stat-num">1</div><div class="stat-label">Pod per day<br/>pre-filled</div></div>
-  <div class="stat-item"><div class="stat-num">30</div><div class="stat-label">Pods per kit<br/>ready to use</div></div>
+  <div class="stat-item"><div class="stat-num">1</div><div class="stat-label">Pod per day<br/><em>pre-filled</em></div></div>
+  <div class="stat-item"><div class="stat-num">30</div><div class="stat-label">Pods per kit<br/><em>ready for use</em></div></div>
   <div class="stat-item"><div class="stat-num">6</div><div class="stat-label">Protocols</div></div>
   <div class="stat-item"><div class="stat-num">0</div><div class="stat-label">Reasons not to start</div></div>
 </div>
@@ -340,7 +340,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:32px 40px
       <div class="pod-card" data-category="recovery">
         <div class="pod-card-top">
           <div class="pod-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#00ff6a" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#00ff6a" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
           </div>
           <span class="pod-category-badge badge-recovery">Recovery</span>
         </div>
@@ -413,7 +413,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:32px 40px
       <div class="pod-card" data-category="performance">
         <div class="pod-card-top">
           <div class="pod-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#00c8ff" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#00c8ff" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
           </div>
           <span class="pod-category-badge badge-performance">Performance</span>
         </div>
