@@ -711,12 +711,12 @@ document.getElementById('wl-email').addEventListener('keydown',e=>{ if(e.key==='
 // === WEBGL AURORA — WAITLIST ===
 (function(){
 var VS='attribute vec2 a;void main(){gl_Position=vec4(a,0.,1.);}';
-var FS=`precision highp float;uniform float T;uniform vec2 R,M;
+var FS=`precision highp float;uniform float T;uniform vec2 R,M;uniform vec3 C;
 float h(vec2 p){vec3 q=fract(vec3(p.xyx)*.1031);q+=dot(q,q.yzx+33.33);return fract((q.x+q.y)*q.z);}
 float n(vec2 p){vec2 i=floor(p),f=fract(p),u=f*f*(3.-2.*f);return mix(mix(h(i),h(i+vec2(1,0)),u.x),mix(h(i+vec2(0,1)),h(i+vec2(1,1)),u.x),u.y);}
 float fbm(vec2 p){float v=0.,a=.5;mat2 m=mat2(1.8,1.2,-1.2,1.8);v+=a*n(p);p=m*p;a*=.5;v+=a*n(p);p=m*p;a*=.5;v+=a*n(p);p=m*p;a*=.5;v+=a*n(p);p=m*p;a*=.5;v+=a*n(p);p=m*p;a*=.5;return v+a*.5*n(p);}
 float vor(vec2 p){vec2 i=floor(p),f=fract(p);float d=8.;for(int y=-1;y<=1;y++)for(int x=-1;x<=1;x++){vec2 g=vec2(float(x),float(y)),o=vec2(h(i+g+vec2(.7,1.3)),h(i+g+vec2(3.7,2.1)));o=.5+.5*sin(T*.25+6.2832*o);d=min(d,length(g+o-f));}return d;}
-vec3 pal(float t){t=clamp(t,0.,1.);vec3 c=mix(vec3(0.),vec3(0.,.05,.015),smoothstep(0.,.2,t));c=mix(c,vec3(0.,.18,.06),smoothstep(.18,.42,t));c=mix(c,vec3(0.,.68,.24),smoothstep(.38,.62,t));c=mix(c,vec3(0.,1.,.416),smoothstep(.58,.8,t));return mix(c,vec3(.85,1.,.9),smoothstep(.75,1.,t));}
+vec3 pal(float t){t=clamp(t,0.,1.);vec3 c=mix(vec3(0.),C*.07,smoothstep(0.,.2,t));c=mix(c,C*.25,smoothstep(.18,.42,t));c=mix(c,C*.72,smoothstep(.38,.62,t));c=mix(c,C,smoothstep(.58,.8,t));return mix(c,mix(C,vec3(1.),.2),smoothstep(.75,1.,t));}
 void main(){
   vec2 uv=(gl_FragCoord.xy-.5*R)/min(R.x,R.y);
   vec2 ms=M/R-.5;ms.y*=-1.;
@@ -730,7 +730,7 @@ void main(){
   val=smoothstep(.05,.95,val);
   val=pow(val,1.15);
   vec3 col=pal(val);
-  col+=vec3(0.,.15,.05)*exp(-dot(ms-uv,ms-uv)*12.)*val;
+  col+=C*.15*exp(-dot(ms-uv,ms-uv)*12.)*val;
   col*=1.-smoothstep(.38,.9,length(uv*.85))*.72;
   col*=1.+(sin(uv.y*10.+q.x*4.+t*2.)*.5+.5)*.035*smoothstep(.3,.8,val);
   col=pow(clamp(col,0.,1.),vec3(.88));
@@ -744,13 +744,17 @@ function sh(type,src){var s=gl.createShader(type);gl.shaderSource(s,src);gl.comp
 var prog=gl.createProgram();gl.attachShader(prog,sh(gl.VERTEX_SHADER,VS));gl.attachShader(prog,sh(gl.FRAGMENT_SHADER,FS));gl.linkProgram(prog);gl.useProgram(prog);
 var buf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buf);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),gl.STATIC_DRAW);
 var al=gl.getAttribLocation(prog,'a');gl.enableVertexAttribArray(al);gl.vertexAttribPointer(al,2,gl.FLOAT,false,0,0);
-var uT=gl.getUniformLocation(prog,'T'),uR=gl.getUniformLocation(prog,'R'),uM=gl.getUniformLocation(prog,'M');
+var uT=gl.getUniformLocation(prog,'T'),uR=gl.getUniformLocation(prog,'R'),uM=gl.getUniformLocation(prog,'M'),uC=gl.getUniformLocation(prog,'C');
+var ac=[0,1,0.416];
+function syncAc(){var v=getComputedStyle(document.documentElement).getPropertyValue('--green').trim();if(v&&v[0]==='#'){v=v.replace('#','');ac=[parseInt(v.slice(0,2),16)/255,parseInt(v.slice(2,4),16)/255,parseInt(v.slice(4,6),16)/255];}}
+syncAc();
+window.addEventListener('themechange',syncAc);
 var mx=0,my=0,tmx=0,tmy=0;
 section.addEventListener('mousemove',function(e){var r=section.getBoundingClientRect();tmx=e.clientX-r.left;tmy=e.clientY-r.top;});
 function resize(){var dpr=Math.min(window.devicePixelRatio||1,1.5);canvas.width=Math.round(section.clientWidth*dpr);canvas.height=Math.round(section.clientHeight*dpr);gl.viewport(0,0,canvas.width,canvas.height);}
 new ResizeObserver(resize).observe(section);resize();
 var raf,active=false;
-function draw(ts){raf=requestAnimationFrame(draw);mx+=(tmx-mx)*.06;my+=(tmy-my)*.06;gl.uniform1f(uT,ts*.001);gl.uniform2f(uR,canvas.width,canvas.height);gl.uniform2f(uM,mx*(canvas.width/section.clientWidth),my*(canvas.height/section.clientHeight));gl.drawArrays(gl.TRIANGLE_STRIP,0,4);}
+function draw(ts){raf=requestAnimationFrame(draw);mx+=(tmx-mx)*.06;my+=(tmy-my)*.06;gl.uniform1f(uT,ts*.001);gl.uniform2f(uR,canvas.width,canvas.height);gl.uniform2f(uM,mx*(canvas.width/section.clientWidth),my*(canvas.height/section.clientHeight));gl.uniform3fv(uC,ac);gl.drawArrays(gl.TRIANGLE_STRIP,0,4);}
 new IntersectionObserver(function(entries){if(entries[0].isIntersecting){if(!active){active=true;raf=requestAnimationFrame(draw);}}else{active=false;cancelAnimationFrame(raf);}},{threshold:.05}).observe(section);
 })();
 
