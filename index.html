@@ -215,12 +215,11 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:32px 40px
   .stat-item{min-width:50%;border-right:none;border-bottom:1px solid var(--border);}
   footer{flex-direction:column;gap:14px;text-align:center;}
   .hero-logo{letter-spacing:0.15em;}
-  .theme-switcher{display:none;}
 }
 
 /* ===== THEME SWITCHER UI ===== */
 .theme-switcher{position:relative;display:flex;align-items:center;}
-.theme-toggle-btn{display:flex;align-items:center;gap:7px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--grey);background:transparent;border:1px solid var(--border);border-radius:999px;padding:7px 16px;cursor:none;transition:color .25s,border-color .25s;}
+.theme-toggle-btn{display:flex;align-items:center;gap:7px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.75);background:transparent;border:1px solid rgba(255,255,255,0.25);border-radius:999px;padding:7px 16px;cursor:none;transition:color .25s,border-color .25s;}
 .theme-toggle-btn:hover{color:var(--green);border-color:var(--green);}
 .theme-toggle-btn svg{stroke:currentColor;flex-shrink:0;}
 .theme-dropdown{position:absolute;top:calc(100% + 12px);right:0;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:6px;min-width:156px;display:none;flex-direction:column;gap:2px;z-index:200;box-shadow:0 16px 40px rgba(0,0,0,0.6);}
@@ -259,6 +258,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:32px 40px
 [data-theme="carbon"] .nav-cta{color:#000;}
 [data-theme="carbon"] .btn-green{color:#000;}
 [data-theme="carbon"] .nav-icon{border-color:var(--green);}
+@media(max-width:900px){.theme-switcher{display:none;}}
 </style>
 <script>
 /* Apply saved theme immediately to prevent flash */
