@@ -106,13 +106,15 @@ section{position:relative;padding:100px 40px;}
 .lpd-step.active{color:var(--green);}
 .lpd-arrow{color:var(--grey2);font-size:10px;}
 /* PODS SECTION */
-#pods{background:var(--bg);padding:0;overflow:hidden;}
-.pods-header-wrap{padding:80px 40px 48px;max-width:1100px;margin:0 auto;}
-.pods-header{text-align:center;}
-.pods-scroll-outer{width:100%;overflow:hidden;display:flex;align-items:center;}
-.pods-track{display:flex;flex-wrap:nowrap;gap:20px;padding:20px 80px;align-items:stretch;}
-.pods-disclaimer{padding:20px 40px 60px;text-align:center;}
-.pod-card{background:var(--card);border-radius:20px;padding:28px;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,0.05);transition:border-color .3s;display:flex;flex-direction:column;min-width:340px;max-width:340px;}
+#pods{background:var(--bg);}
+.pods-inner{max-width:1100px;margin:0 auto;}
+.pods-header{text-align:center;margin-bottom:48px;}
+.filter-tabs{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:48px;}
+.filter-tab{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;padding:9px 20px;border-radius:999px;border:1px solid rgba(255,255,255,0.15);background:transparent;color:var(--grey);cursor:none;transition:all .25s;}
+.filter-tab.active{background:var(--green);color:#000;border-color:var(--green);box-shadow:0 0 16px var(--green-glow);}
+.filter-tab:hover:not(.active){border-color:rgba(255,255,255,0.3);color:#fff;}
+.pods-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+.pod-card{background:var(--card);border-radius:20px;padding:28px;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,0.05);transition:border-color .3s;display:flex;flex-direction:column;}
 .pod-card:hover{border-color:rgba(0,255,106,0.2);transform:translateY(-2px);}
 .pod-card.hidden{display:none;}
 .pod-card-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:20px;}
@@ -208,7 +210,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:32px 40px
   .problem-img{height:50vw;}
   .kit-img{height:50vw;}
   .steps-grid{grid-template-columns:1fr;}
-  .pods-scroll-outer{height:auto;}.pods-track{flex-direction:column;padding:20px;}.pod-card{min-width:auto;max-width:100%;width:100%;}.stacks-grid{grid-template-columns:1fr;}
+  .pods-grid,.stacks-grid{grid-template-columns:1fr;}
   .stats-bar{flex-wrap:wrap;}
   .stat-item{min-width:50%;border-right:none;border-bottom:1px solid var(--border);}
   footer{flex-direction:column;gap:14px;text-align:center;}
@@ -325,15 +327,20 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:32px 40px
 </section>
 <!-- PODS -->
 <section id="pods">
-  <div class="pods-header-wrap">
+  <div class="pods-inner">
     <div class="pods-header reveal">
       <div class="eyebrow">Pulse Kits</div>
       <h2 class="section-h">Built for your goals.<br/>Delivered to your door.</h2>
       <p class="section-sub" style="max-width:560px;margin:0 auto;">Each kit comes with a 30-day supply of peptide pods, filled with clinically-informed dosing. Select a protocol and Pulse delivers it to you monthly.</p>
     </div>
-  </div>
-  <div class="pods-scroll-outer" id="pods-scroll-outer">
-    <div class="pods-track" id="pods-track">
+    <div class="filter-tabs">
+      <button class="filter-tab active" data-filter="all" onclick="filterPods(this,'all')">All Protocols</button>
+      <button class="filter-tab" data-filter="performance" onclick="filterPods(this,'performance')">Performance</button>
+      <button class="filter-tab" data-filter="recovery" onclick="filterPods(this,'recovery')">Recovery</button>
+      <button class="filter-tab" data-filter="bodycomp" onclick="filterPods(this,'bodycomp')">Body Comp</button>
+      <button class="filter-tab" data-filter="longevity" onclick="filterPods(this,'longevity')">Longevity</button>
+    </div>
+    <div class="pods-grid" id="pods-grid">
       <!-- SLEEP POD $129 - Recovery -->
       <div class="pod-card" data-category="recovery">
         <div class="pod-card-top">
@@ -480,8 +487,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:32px 40px
         </div>
       </div>
     </div>
+    <p class="disclaimer">These statements have not been evaluated by the FDA. All protocols require physician authorisation through Pulse's MSO/PC model. Not intended to diagnose, treat, cure, or prevent any disease.</p>
   </div>
-  <p class="pods-disclaimer disclaimer">These statements have not been evaluated by the FDA. All protocols require physician authorisation through Pulse's MSO/PC model. Not intended to diagnose, treat, cure, or prevent any disease.</p>
 </section>
 <!-- STACKS -->
 <section id="stacks">
@@ -609,6 +616,15 @@ window.addEventListener('scroll',()=>{
   const bg=document.querySelector('.hero-bg img');
   if(bg) bg.style.transform=`translateY(${y*0.12}px)`;
 });
+// Pod filter
+function filterPods(btn, cat) {
+  document.querySelectorAll('.filter-tab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.pod-card').forEach(card=>{
+    const c=card.dataset.category;
+    card.classList.toggle('hidden', cat!=='all' && c!==cat);
+  });
+}
 // Waitlist
 function joinWaitlist() {
   const email=document.getElementById('wl-email').value;
@@ -719,42 +735,22 @@ gsap.from('.step-card', {
   scrollTrigger: { trigger: '.steps-grid', start: 'top 82%' }
 });
 
-// ── PODS — header reveal + horizontal scroll pin ──────
+// ── PODS ──────────────────────────────────────────────
 gsap.from('.pods-header', {
   y: 52, opacity: 0, duration: 1.0, ease: 'expo.out',
-  scrollTrigger: { trigger: '.pods-header-wrap', start: 'top 80%' }
+  scrollTrigger: { trigger: '#pods', start: 'top 80%' }
 });
-// Horizontal scroll (desktop only)
-(function(){
-  const mm = gsap.matchMedia();
-  mm.add('(min-width:769px)', () => {
-    const outer = document.getElementById('pods-scroll-outer');
-    const track = document.getElementById('pods-track');
-    if (!outer || !track) return;
-    gsap.to(track, {
-      x: () => -(track.scrollWidth - outer.clientWidth),
-      ease: 'none',
-      scrollTrigger: {
-        trigger: outer,
-        pin: true,
-        scrub: 1,
-        start: 'top top',
-        end: () => '+=' + (track.scrollWidth - outer.clientWidth),
-        invalidateOnRefresh: true,
-      }
-    });
+gsap.from('.filter-tabs', {
+  y: 28, opacity: 0, duration: 0.75, ease: 'power3.out',
+  scrollTrigger: { trigger: '.filter-tabs', start: 'top 88%' }
+});
+gsap.utils.toArray('.pod-card').forEach((card) => {
+  gsap.from(card, {
+    y: 56, opacity: 0, duration: 1.0, ease: 'expo.out',
+    clearProps: 'transform,opacity',
+    scrollTrigger: { trigger: card, start: 'top 92%' }
   });
-  // Mobile: individual card reveals
-  mm.add('(max-width:768px)', () => {
-    gsap.utils.toArray('.pod-card').forEach(card => {
-      gsap.from(card, {
-        y: 48, opacity: 0, duration: 0.9, ease: 'expo.out',
-        clearProps: 'transform,opacity',
-        scrollTrigger: { trigger: card, start: 'top 92%' }
-      });
-    });
-  });
-})();
+});
 
 // ── STACKS — alternating horizontal momentum ──────────
 gsap.from('.stacks-header', {
