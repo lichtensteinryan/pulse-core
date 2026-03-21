@@ -20,8 +20,8 @@
   --green-dim: rgba(0,255,106,0.1);
   --green-glow: rgba(0,255,106,0.2);
   --white: #ffffff;
-  --grey: rgba(255,255,255,0.45);
-  --grey2: rgba(255,255,255,0.25);
+  --grey: rgba(255,255,255,0.65);
+  --grey2: rgba(255,255,255,0.42);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
@@ -92,9 +92,9 @@ section{position:relative;padding:100px 40px;}
 #peptides{background:var(--surface);}
 .peptides-inner{max-width:1100px;margin:0 auto;}
 .peptides-header{text-align:center;margin-bottom:72px;}
-.peptide-explainer{display:grid;grid-template-columns:1fr 1fr;gap:2px;align-items:start;}
-.peptide-chain{margin-top:28px;display:flex;flex-direction:column;gap:2px;}
-.chain-item{padding:18px 22px;background:var(--card);border-left:2px solid transparent;transition:border-color .3s;}
+.peptide-explainer{display:grid;grid-template-columns:1fr 1fr;gap:2px;align-items:stretch;}
+.peptide-chain{margin-top:28px;display:flex;flex-direction:column;gap:2px;flex:1;}
+.chain-item{padding:18px 22px;background:rgba(255,255,255,0.03);border-left:2px solid transparent;transition:border-color .3s;}
 .chain-item:hover{border-left-color:var(--green);}
 .chain-label{font-size:13px;font-weight:500;margin-bottom:4px;}
 .chain-body{font-size:12px;font-weight:300;color:var(--grey);line-height:1.65;}
@@ -120,11 +120,11 @@ section{position:relative;padding:100px 40px;}
 .benefit-compound{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.12em;color:var(--green);background:var(--green-dim);border:1px solid rgba(0,255,106,0.2);padding:3px 10px;border-radius:999px;}
 .audience-split{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:2px;}
 .audience-card{background:var(--card2);padding:32px 32px;}
-.audience-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:var(--grey);margin-bottom:20px;}
-.audience-h{font-size:20px;font-weight:600;margin-bottom:12px;line-height:1.3;}
+.audience-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:20px;}
+.audience-h{font-size:20px;font-weight:700;color:var(--white);margin-bottom:12px;line-height:1.3;}
 .audience-body{font-size:13px;font-weight:300;color:var(--grey);line-height:1.75;margin-bottom:24px;}
 .audience-qs{display:flex;flex-direction:column;gap:10px;}
-.audience-q{font-size:12px;font-weight:300;color:var(--grey);line-height:1.6;padding-left:16px;border-left:2px solid rgba(0,255,106,0.25);}
+.audience-q{font-size:12px;font-weight:400;color:var(--grey);line-height:1.6;padding-left:16px;border-left:2px solid rgba(0,255,106,0.3);}
 /* WHY PULSE COMPARISON */
 #problem{background:var(--bg);padding:100px 40px;}
 .compare-inner{max-width:1100px;margin:0 auto;}
@@ -303,14 +303,14 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:32px 40px
 .theme-swatch{width:10px;height:10px;border-radius:50%;flex-shrink:0;box-shadow:0 0 6px currentColor;}
 
 /* ===== THEME: NEUTRAL (warm, gender-neutral, teal) ===== */
-[data-theme="neutral"]{--bg:#12110f;--surface:#1c1a17;--card:#232018;--card2:#2a271f;--border:rgba(255,240,210,0.08);--green:#4ecdc4;--green-dim:rgba(78,205,196,0.12);--green-glow:rgba(78,205,196,0.22);--white:#f5efe6;--grey:rgba(245,239,230,0.5);--grey2:rgba(245,239,230,0.28);}
+[data-theme="neutral"]{--bg:#12110f;--surface:#1c1a17;--card:#232018;--card2:#2a271f;--border:rgba(255,240,210,0.08);--green:#4ecdc4;--green-dim:rgba(78,205,196,0.12);--green-glow:rgba(78,205,196,0.22);--white:#f5efe6;--grey:rgba(245,239,230,0.68);--grey2:rgba(245,239,230,0.44);}
 [data-theme="neutral"] nav{background:linear-gradient(to bottom,rgba(18,17,15,0.95) 0%,transparent 100%);}
 [data-theme="neutral"] .hero-bg::after{background:linear-gradient(to bottom,rgba(18,17,15,0.82) 0%,rgba(18,17,15,0.2) 35%,rgba(18,17,15,0.15) 60%,rgba(18,17,15,0.85) 85%,rgba(18,17,15,0.98) 100%);}
 [data-theme="neutral"] .nav-cta{color:#000;}
 [data-theme="neutral"] .btn-green{color:#000;}
 
 /* ===== THEME: CLINICAL (dark navy, sky-blue, tech/medical) ===== */
-[data-theme="clinical"]{--bg:#040c18;--surface:#071425;--card:#0a1d34;--card2:#0e2540;--border:rgba(100,180,255,0.12);--green:#38bdf8;--green-dim:rgba(56,189,248,0.1);--green-glow:rgba(56,189,248,0.22);--white:#e0f2fe;--grey:rgba(224,242,254,0.5);--grey2:rgba(224,242,254,0.28);}
+[data-theme="clinical"]{--bg:#040c18;--surface:#071425;--card:#0a1d34;--card2:#0e2540;--border:rgba(100,180,255,0.12);--green:#38bdf8;--green-dim:rgba(56,189,248,0.1);--green-glow:rgba(56,189,248,0.22);--white:#e0f2fe;--grey:rgba(224,242,254,0.68);--grey2:rgba(224,242,254,0.44);}
 [data-theme="clinical"] nav{background:linear-gradient(to bottom,rgba(4,12,24,0.97) 0%,transparent 100%);}
 [data-theme="clinical"] .hero-bg::after{background:linear-gradient(to bottom,rgba(4,12,24,0.82) 0%,rgba(4,12,24,0.2) 35%,rgba(4,12,24,0.15) 60%,rgba(4,12,24,0.85) 85%,rgba(4,12,24,0.98) 100%);}
 [data-theme="clinical"] .nav-cta{color:#000;}
@@ -318,14 +318,14 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:32px 40px
 [data-theme="clinical"] .step-num{color:var(--green);}
 
 /* ===== THEME: AURORA (deep purple, lavender, inclusive) ===== */
-[data-theme="aurora"]{--bg:#0d0a1a;--surface:#160f2a;--card:#1e1535;--card2:#261c40;--border:rgba(200,170,255,0.1);--green:#c084fc;--green-dim:rgba(192,132,252,0.12);--green-glow:rgba(192,132,252,0.28);--white:#faf5ff;--grey:rgba(250,245,255,0.5);--grey2:rgba(250,245,255,0.28);}
+[data-theme="aurora"]{--bg:#0d0a1a;--surface:#160f2a;--card:#1e1535;--card2:#261c40;--border:rgba(200,170,255,0.1);--green:#c084fc;--green-dim:rgba(192,132,252,0.12);--green-glow:rgba(192,132,252,0.28);--white:#faf5ff;--grey:rgba(250,245,255,0.68);--grey2:rgba(250,245,255,0.44);}
 [data-theme="aurora"] nav{background:linear-gradient(to bottom,rgba(13,10,26,0.95) 0%,transparent 100%);}
 [data-theme="aurora"] .hero-bg::after{background:linear-gradient(to bottom,rgba(13,10,26,0.82) 0%,rgba(13,10,26,0.2) 35%,rgba(13,10,26,0.15) 60%,rgba(13,10,26,0.85) 85%,rgba(13,10,26,0.98) 100%);}
 [data-theme="aurora"] .nav-cta{color:#fff;background:var(--green);}
 [data-theme="aurora"] .btn-green{color:#fff;}
 
 /* ===== THEME: CARBON (pure black, neon cyan, futuristic) ===== */
-[data-theme="carbon"]{--bg:#000000;--surface:#080808;--card:#0d0d0d;--card2:#121212;--border:rgba(0,255,255,0.07);--green:#00ffff;--green-dim:rgba(0,255,255,0.08);--green-glow:rgba(0,255,255,0.2);--white:#ffffff;--grey:rgba(255,255,255,0.5);--grey2:rgba(255,255,255,0.28);}
+[data-theme="carbon"]{--bg:#000000;--surface:#080808;--card:#0d0d0d;--card2:#121212;--border:rgba(0,255,255,0.07);--green:#00ffff;--green-dim:rgba(0,255,255,0.08);--green-glow:rgba(0,255,255,0.2);--white:#ffffff;--grey:rgba(255,255,255,0.68);--grey2:rgba(255,255,255,0.44);}
 [data-theme="carbon"] nav{background:linear-gradient(to bottom,rgba(0,0,0,0.98) 0%,transparent 100%);}
 [data-theme="carbon"] .hero-bg::after{background:linear-gradient(to bottom,rgba(0,0,0,0.85) 0%,rgba(0,0,0,0.2) 35%,rgba(0,0,0,0.15) 60%,rgba(0,0,0,0.85) 85%,rgba(0,0,0,0.99) 100%);}
 [data-theme="carbon"] .nav-cta{color:#000;}
@@ -422,7 +422,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:32px 40px
 
     <!-- What is a peptide -->
     <div class="peptide-explainer">
-      <div>
+      <div style="display:flex;flex-direction:column;background:var(--card2);padding:32px;">
         <div class="eyebrow">What is a peptide?</div>
         <h3 style="font-size:clamp(22px,2.2vw,30px);font-weight:600;line-height:1.2;margin-bottom:14px;">Short chains of amino acids your body uses as signaling molecules.</h3>
         <p class="section-sub reveal" style="font-size:13px;margin-top:0;">Unlike pharmaceuticals that override your biology, peptides communicate with it &mdash; triggering your body&rsquo;s own repair, growth, and regulation pathways. They&rsquo;re precise, targeted, and when used consistently, highly effective.</p>
