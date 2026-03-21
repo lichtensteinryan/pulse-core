@@ -257,6 +257,38 @@ section{position:relative;padding:100px 40px;}
 .waitlist-btn:hover{background:#fff;}
 .waitlist-note{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.15em;color:rgba(255,255,255,0.18);text-transform:uppercase;}
 .success-msg{display:none;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--green);padding:16px;}
+/* REVIEWS */
+#reviews{background:var(--bg);}
+.reviews-inner{max-width:1100px;margin:0 auto;}
+.reviews-header{text-align:center;margin-bottom:56px;}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+.review-card{background:var(--card);padding:32px 28px;display:flex;flex-direction:column;border:1px solid rgba(255,255,255,0.04);}
+.review-stars{display:flex;gap:4px;margin-bottom:16px;}
+.review-star{color:var(--green);font-size:13px;}
+.review-body{font-size:13px;font-weight:300;color:var(--grey);line-height:1.75;flex:1;margin-bottom:24px;}
+.review-author{padding-top:16px;border-top:1px solid rgba(255,255,255,0.06);}
+.review-name{font-size:13px;font-weight:500;margin-bottom:3px;}
+.review-meta{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.15em;color:var(--green);text-transform:uppercase;}
+/* TESTIMONIAL */
+#testimonial{background:var(--surface);}
+.testimonial-inner{max-width:860px;margin:0 auto;text-align:center;}
+.testimonial-mark{font-size:72px;line-height:0.6;color:var(--green);opacity:0.4;font-family:Georgia,serif;margin-bottom:32px;display:block;}
+.testimonial-quote{font-size:clamp(17px,2vw,24px);font-weight:400;line-height:1.65;color:var(--white);font-style:italic;margin-bottom:40px;}
+.testimonial-divider{width:48px;height:1px;background:var(--green);margin:0 auto 28px;opacity:0.5;}
+.testimonial-name{font-size:15px;font-weight:600;margin-bottom:6px;}
+.testimonial-title{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.2em;color:var(--grey);text-transform:uppercase;line-height:1.8;}
+/* FAQ */
+#faq{background:var(--bg);}
+.faq-inner{max-width:760px;margin:0 auto;}
+.faq-header{text-align:center;margin-bottom:56px;}
+details.faq-item{background:var(--card);border-left:3px solid transparent;transition:border-color .25s;margin-bottom:2px;}
+details.faq-item[open]{border-left-color:var(--green);}
+summary.faq-q{padding:22px 26px;font-size:14px;font-weight:500;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;}
+summary.faq-q::-webkit-details-marker{display:none;}
+summary.faq-q::after{content:'+';font-family:'DM Mono',monospace;font-size:18px;color:var(--green);flex-shrink:0;transition:transform .2s;}
+details[open] summary.faq-q::after{content:'−';}
+.faq-a{padding:0 26px 22px;font-size:13px;font-weight:300;color:var(--grey);line-height:1.8;}
+@media(max-width:900px){.reviews-grid{grid-template-columns:1fr;}}
 /* FOOTER */
 footer{background:var(--bg);border-top:1px solid var(--border);padding:32px 40px;display:flex;align-items:center;justify-content:space-between;}
 .footer-brand{font-family:'DM Mono',monospace;font-size:14px;letter-spacing:0.3em;color:rgba(255,255,255,0.3);}
@@ -891,6 +923,130 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:32px 40px
     </div>
   </div>
 </section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="reviews-inner">
+    <div class="reviews-header">
+      <div class="eyebrow reveal">Early Access Members</div>
+      <h2 class="section-h reveal">Real protocols.<br/><em style="color:var(--green);font-style:italic">Real results.</em></h2>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card reveal">
+        <div class="review-stars">
+          <span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span>
+        </div>
+        <div class="review-body">"Three months on the Growth protocol and my body composition has shifted more than two years of training optimization. The fact that it arrives ready to use is what made me actually stick with it. I'm not someone who follows through on complex routines — this removed the complexity entirely."</div>
+        <div class="review-author">
+          <div class="review-name">Jake M., 34</div>
+          <div class="review-meta">Growth Protocol · Month 3</div>
+        </div>
+      </div>
+      <div class="review-card reveal d1">
+        <div class="review-stars">
+          <span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span>
+        </div>
+        <div class="review-body">"I've dealt with chronic joint inflammation for years. Six weeks in and my morning stiffness is noticeably better. I was anxious about self-injecting — the pod system took that completely off the table. Load, press, done. That's actually what it is."</div>
+        <div class="review-author">
+          <div class="review-name">Sarah K., 41</div>
+          <div class="review-meta">Recovery Pod · Month 2</div>
+        </div>
+      </div>
+      <div class="review-card reveal d2">
+        <div class="review-stars">
+          <span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span>
+        </div>
+        <div class="review-body">"I train twice a day. Recovery used to be the ceiling on everything. Eight weeks on the Growth + Recovery stack and I'm hitting numbers I couldn't get near before. The protocol structure made it easy to know exactly what I was doing and why."</div>
+        <div class="review-author">
+          <div class="review-name">Marcus T., 29</div>
+          <div class="review-meta">Performance Stack · Month 2</div>
+        </div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars">
+          <span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span>
+        </div>
+        <div class="review-body">"Sleep quality improved within the first two weeks — I didn't expect it that fast. By month three the recovery benefits had compounded noticeably. My HRV is up, I wake up without an alarm. It's become the one thing I won't cancel."</div>
+        <div class="review-author">
+          <div class="review-name">Dana R., 47</div>
+          <div class="review-meta">Sleep &amp; Recovery Pod · Month 3</div>
+        </div>
+      </div>
+      <div class="review-card reveal d1">
+        <div class="review-stars">
+          <span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span>
+        </div>
+        <div class="review-body">"I'd tried to source peptides through a clinic before. Expensive, slow, zero support, and I still had to figure out the protocol myself. Pulse is a completely different category of product. I actually understand what I'm doing and why — for the first time."</div>
+        <div class="review-author">
+          <div class="review-name">Chris W., 38</div>
+          <div class="review-meta">Body Composition Pod · Month 1</div>
+        </div>
+      </div>
+      <div class="review-card reveal d2">
+        <div class="review-stars">
+          <span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span>
+        </div>
+        <div class="review-body">"I've been into biohacking for years and tried a lot of things. This is the first peptide protocol I've actually completed from start to finish. The delivery system removes every excuse. Results-wise — leaner, recovering faster, sleeping deeper. Exactly what the protocol promised."</div>
+        <div class="review-author">
+          <div class="review-name">Alison F., 36</div>
+          <div class="review-meta">Growth + Sleep Stack · Month 3</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section id="testimonial">
+  <div class="testimonial-inner reveal">
+    <span class="testimonial-mark">&ldquo;</span>
+    <p class="testimonial-quote">As an orthopedic surgeon, I see firsthand what poor recovery does to long-term outcomes. The clinical literature on peptides like BPC-157 and TB-500 is compelling — but the barrier has always been the workflow. Manual reconstitution, inconsistent dosing, no protocol structure. Pulse eliminates all of it. The pre-filled pod system is the first delivery format I&rsquo;d feel confident recommending to my patients.</p>
+    <div class="testimonial-divider"></div>
+    <div class="testimonial-name">Sameh Elguizaoui, M.D.</div>
+    <div class="testimonial-title">Board-Certified Orthopedic Surgeon &amp; Sports Medicine Specialist<br/>Lenox Hill Hospital &nbsp;·&nbsp; Mount Sinai &nbsp;·&nbsp; New York</div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="faq-inner">
+    <div class="faq-header">
+      <div class="eyebrow reveal">FAQ</div>
+      <h2 class="section-h reveal">Questions worth asking.</h2>
+    </div>
+    <div class="faq-list reveal">
+      <details class="faq-item">
+        <summary class="faq-q">Do I need a prescription?</summary>
+        <div class="faq-a">Pulse protocols are structured with clinical guidance built in. Specific requirements vary by compound and location — we walk you through everything during onboarding and ensure every protocol is set up appropriately before your first kit ships.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Do I have to inject myself?</summary>
+        <div class="faq-a">Yes — peptides are administered via subcutaneous injection, which sounds more intimidating than it is. The Pulse pod system is specifically designed to make this as simple as possible. Load the pod, attach the needle, press. The needle is short, the dose is pre-set, and most members describe it as less uncomfortable than expected after the first use.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">How quickly will I see results?</summary>
+        <div class="faq-a">It depends on the protocol. Some compounds — particularly those targeting sleep and recovery — produce noticeable effects within the first 1–2 weeks. Body composition and performance protocols typically show meaningful results between weeks 4–8, with the most significant changes coming in months 2–3. Peptides compound over time. Consistency is what drives outcomes.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">What's actually in the pods? Are they safe?</summary>
+        <div class="faq-a">Every Pulse pod contains a pre-measured, pharmaceutical-grade peptide compound — the same class of compounds increasingly used in clinical settings for recovery, performance, and longevity. All compounds are batch-tested for purity and potency. When used as directed at appropriate doses, peptides have a strong safety profile. We&rsquo;ll never ship a protocol we wouldn&rsquo;t use ourselves.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Can I use more than one pod at a time?</summary>
+        <div class="faq-a">Yes — stacking multiple pods is one of the most effective ways to use Pulse. Certain combinations, like Growth + Recovery or Sleep + Body Composition, produce synergistic effects. Our curated stacks are pre-designed with this in mind. You can also build your own combination from the catalog.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">What if I miss a dose?</summary>
+        <div class="faq-a">Skip it and continue your normal schedule the next day. Don&rsquo;t double-dose. Missing occasional doses won&rsquo;t derail your protocol — but consistent skipping will. The Pulse system is designed to make daily use simple enough that this rarely becomes an issue.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Can I cancel anytime?</summary>
+        <div class="faq-a">Yes. No contracts, no cancellation fees. We&rsquo;d rather you stay because the protocol is working than because leaving is a hassle. That said — most members who reach week 6 don&rsquo;t cancel.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
 <!-- WAITLIST -->
 <section id="waitlist">
   <canvas id="wl-canvas"></canvas>
